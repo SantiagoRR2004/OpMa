@@ -1,0 +1,35 @@
+GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page   1
+
+Problem:    
+Objective:  Coste = 21 (MAXimum)
+
+   No. Row name     St      Activity         Slack   Lower bound       Activity      Obj coef  Obj value at Limiting
+                                          Marginal   Upper bound          range         range   break point variable
+------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
+     1 c_u_MatPrimaA_
+                    NU      24.00000        .               -Inf       20.00000       -.75000      18.00000 pInterior
+                                            .75000      24.00000       36.00000          +Inf      30.00000 pInterior
+
+     2 c_u_MatPrimaB_
+                    NU       6.00000        .               -Inf        4.00000       -.50000      20.00000 pInterior
+                                            .50000       6.00000        6.66667          +Inf      21.33333 pInterior
+
+     3 c_u_EstMercado_
+                    BS      -1.50000       2.50000          -Inf       -4.00000       -.40000      21.60000 c_u_MatPrimaB_
+                                            .            1.00000         .            2.00000      18.00000 c_u_MatPrimaA_
+
+GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page   2
+
+Problem:    
+Objective:  Coste = 21 (MAXimum)
+
+   No. Column name  St      Activity      Obj coef   Lower bound       Activity      Obj coef  Obj value at Limiting
+                                          Marginal   Upper bound          range         range   break point variable
+------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
+     1 pExterior    BS       3.00000       5.00000        .             2.00000       2.00000      12.00000 c_u_MatPrimaA_
+                                            .               +Inf        4.00000       6.00000      24.00000 c_u_MatPrimaB_
+
+     2 pInterior    BS       1.50000       4.00000        .                -Inf       3.33333      20.00000 c_u_MatPrimaB_
+                                            .            2.00000        2.33333      10.00000      30.00000 c_u_MatPrimaA_
+
+End of report

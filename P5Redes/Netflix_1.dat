@@ -1,0 +1,18 @@
+## Ejemplo Netflix - Data en formato AMPL
+
+set Origenes:= S1 S2 S3;
+set Destinos:= C1 C2;
+
+param Oferta:= 
+       S1 3000
+	   S2 2000
+	   S3 2600;
+
+param Demanda:=
+       C1 3500
+	   C2 4000;
+
+param Costes: C1 C2 :=
+	  S1  6  3 
+	  S2  2  3
+	  S3  5  4;

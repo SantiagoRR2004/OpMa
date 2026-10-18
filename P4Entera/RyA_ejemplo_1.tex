@@ -1,0 +1,185 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[]{graphicx}
+\usepackage[]{xcolor}
+\input{../../../Preambulos/preamble_esp}
+
+%Comandos para personalizar la plantilla:
+\renewcommand{\materia}{Optimización Matemática}
+\renewcommand{\practica}{Ramificación y acotación}
+\renewcommand{\curso}{2º grado en Inteligencia Artificial}
+
+
+
+\decimalpoint
+
+\usepackage{multicol}
+\usepackage{multirow}
+
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\usepackage{colortbl}
+\usepackage{etoolbox}
+
+\DeclareMathOperator{\minim}{minimizar}
+\DeclareMathOperator{\maxim}{maximizar}
+\DeclareMathOperator{\subjectto}{sujeto\ a}
+\DeclareMathOperator{\argmin}{argmin}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\rango}{rango}
+
+\renewcommand{\theenumi}{\upshape (\roman{enumi})}
+\renewcommand{\labelenumi}{\upshape (\roman{enumi})} %Enumeraciones con n?meros romanos (nunca estar?n en cursiva) 
+
+\newcommand{\sigF}{\mathcal F}
+\newcommand{\sigG}{\mathcal G}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+
+\newcommand{\x}{\boldsymbol{x}}
+\newcommand{\xb}{\bar{\boldsymbol{x}}}
+\newcommand{\y}{\boldsymbol{y}}
+\newcommand{\z}{\boldsymbol{z}}
+\renewcommand{\b}{\boldsymbol{b}}
+\renewcommand{\c}{\boldsymbol{c}}
+\renewcommand{\d}{\boldsymbol{d}}
+\newcommand{\h}{\boldsymbol{h}}
+\newcommand{\g}{\boldsymbol{g}}
+\newcommand{\p}{\boldsymbol{p}}
+\newcommand{\q}{\boldsymbol{q}}
+\newcommand{\e}{\boldsymbol{e}}
+\newcommand{\A}{\boldsymbol{A}}
+\newcommand{\B}{\boldsymbol{B}}
+\newcommand{\NN}{\boldsymbol{N}}
+\newcommand{\Q}{\boldsymbol{Q}}
+\newcommand{\I}{\boldsymbol{I}}
+\renewcommand{\L}{\boldsymbol{L}}
+\renewcommand{\H}{\boldsymbol{H}}
+\newcommand{\V}{\boldsymbol{V}}
+\renewcommand{\a}{\boldsymbol{a}}
+\newcommand{\s}{\boldsymbol{s}}
+\renewcommand{\v}{\boldsymbol{v}}
+\renewcommand{\z}{\boldsymbol{z}}
+\newcommand{\lambdab}{\boldsymbol{\lambda}}
+\newcommand{\mub}{\boldsymbol{\mu}}
+\newcommand{\zero}{\boldsymbol{0}}
+\newcommand{\inter}[1]{\mathring{#1}}
+\newcommand{\cl}[1]{\bar{#1}}
+
+\newcommand{\ddd}[2]{\ensuremath{\frac{#1}{#2}}}
+
+\newcommand{\fil}[2]{\ensuremath{{#2}^\text{\tiny f}_#1}}
+\newcommand{\col}[2]{\ensuremath{{#2}^\text{\tiny c}_#1}}
+
+\newcommand{\doble}[2]{\genfrac{}{}{0pt}{}{#1}{#2}}
+
+\usepackage{relsize}
+\renewcommand\RSsmallest{1pt}
+%\renewcommand{\t}[1]{#1^{\text{{\tiny$\hspace{-0.08em}\mathsf{T}$}}}}
+\renewcommand{\t}[1]{#1^{\text{{\relsize{-2}$\hspace{-0.01em}\mathsf{T}$}}}}
+
+
+
+\newlength{\myheight}
+\newsavebox{\mytext}
+\savebox{\mytext}{%
+	\Large\bfseries This is our title%
+}
+\settoheight{\myheight}{\usebox{\mytext}}
+\newcommand{\rlogo}{$\vcenter{\hbox{\includegraphics[height=\myheight]{Rlogo}}}\,$}
+
+%\newcommand{\solucion}[1]{#1}
+%\newcommand{\solucion}[1]{}
+
+\newcommand{\solucion}{1}
+
+\usetikzlibrary{positioning,arrows.meta}
+
+\newcommand{\subproblema}[8]{
+	\node (L#1) at (#2,#3){};
+	\node[draw,rectangle] (b#1) at (#2,#3) {
+		\begin{minipage}[t]{2.4cm}
+			\centering
+			#7
+		\end{minipage}
+	};
+	\node[draw, rectangle] (m#1)[above=0mm of b#1] {
+		\begin{minipage}[t]{2.4cm}
+			\centering
+			#5 \\	#6
+		\end{minipage}
+	};
+	\node[draw,rectangle,fill=black!30,minimum width=3.1cm] (t#1) [above=0mm of m#1] {
+		\begin{tabular}{cr}
+			$\boldsymbol{L_{#1}}$ & {\tiny $LB_{#1}=#4$}\\
+		\end{tabular}
+	};
+	\node[draw,rectangle, rounded corners=2mm, minimum width=0.6cm] (l#1)[left=0.5mm of m#1] {#8};
+}
+\newcommand{\phan}{\phantom{LB}}
+
+
+
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+\begin{example}
+	Resuelve el siguiente problema de programación entera:
+	\[
+	\begin{array}{rlcl}
+		(P1) \qquad \minim & -5x_1-8x_2 & & \\[1ex]
+		\subjectto & \phantom{-1}x_1+\phantom{1}x_2 &\leq &6 \\
+		& \phantom{-}5x_1+9x_2&\leq &45 \\
+		& \multicolumn{1}{r}{\x}&\geq& 0 \\
+		& \multicolumn{1}{r}{\x}&\in& \Z^2.
+	\end{array}
+	\]
+\end{example}
+\begin{resol}\phantom{p}
+
+\begin{center}%
+\shorthandoff{<>} %To avoidinterference with Babel
+\setlength{\unitlength}{1cm}
+\begin{tikzpicture}[>={Stealth[scale=3,width=4,length=4]},thick,every node/.style={minimum width=2.65cm,font=\footnotesize},lin/.style={black,thick},cut/.style={black!65,thin},set/.style={fill=black!20}]
+
+ %\subproblema{j}{x}{y}{LB_j}{\xb}{\bar z}{UB-LB}{orden}
+
+	\subproblema{1}{0}{0}{-\infty}{$\xb=(2.25,3.75)$}{$\bar z=-41.25$}{$LB=-41.25$}{1}
+	\subproblema{2}{-2.5}{-3.5}{-41.25}{$\xb=(2,3.89)$}{$\bar z=-41.11$}{\phan}{2}
+	\subproblema{3}{2.5}{-3.5}{-41.25}{$\xb=(3,3)$}{$\bar z=-39$}{$UB=-39$ \\ $\x^{best}=(3,3)$ \\ $LB=-41.11$}{3}
+	
+	\draw[->] (b1) --node[left=-0.3]{$x_1\leq 2$} (t2);
+	\draw[->] (b1) --node[right=-0.3]{$x_1\geq 3$} (t3);
+	
+	\subproblema{4}{-5}{-7}{-41.11}{$\xb=(2,3)$}{$\bar z=-34$}{\phan}{4}
+	\subproblema{5}{0}{-7}{-41.11}{$\xb=(1.8,4)$}{$\bar z=-41$}{$LB=-41$}{5}
+	
+	\draw[->] (b2) --node[left=-0.3]{$x_2\leq 3$} (t4);
+	\draw[->] (b2) --node[right=-0.3]{$x_2\geq 4$} (t5);
+	
+	\subproblema{6}{-2.5}{-10.5}{-41}{$\xb=(1,4.44)$}{$\bar z=-40.56$}{\phan}{6}
+	\subproblema{7}{2.5}{-10.5}{-41}{No}{Factible}{$LB=-40.56$}{7}
+
+	\draw[->] (b5) --node[left=-0.3]{$x_1\leq 1$} (t6);
+	\draw[->] (b5) --node[right=-0.3]{$x_1\geq 2$} (t7);
+	
+	\subproblema{8}{-5}{-14}{-40.56}{$\xb=(1,4)$}{$\bar z=-37$}{\phan}{8}
+	\subproblema{9}{0}{-14}{-40.56}{$\xb=(0,5)$}{$\bar z=-40$}{$UB=-40$ \\ $\x^{best}=(0,5)$}{9}
+
+	\draw[->] (b6) --node[left=-0.3]{$x_2\leq 4$} (t8);
+	\draw[->] (b6) --node[right=-0.3]{$x_2\geq 5$} (t9);	
+
+	%%%%%%Start grid
+	%\draw[step=.5cm,gray, thin, dashed] (0,0) grid (6,6);
+	%\foreach \x in {0,1,...,6}
+	%\draw (\x, 0) node[anchor=north, darkgray, fill=white] {{\tiny $\x$}};
+	%\foreach \y in {0,1,...,6}
+	%\draw (0, \y) node[anchor=east, darkgray, fill=white] {{\tiny $\y$}};
+	%%%%%%End grid
+	\end{tikzpicture}
+	\shorthandon{<>} %To avoidinterference with Babel
+\end{center}
+\end{resol}
+
+\end{document}

@@ -1,0 +1,17 @@
+## Ejemplo Mochila - Data en formato AMPL
+
+set J:= A B C D;
+
+param u:= 
+	A 10
+	B   10
+	C     8
+	D      18;
+
+param p:=
+       A  40
+	   B   20
+	   C    14
+       D      35; 
+
+param P:= 100;

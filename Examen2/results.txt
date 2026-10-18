@@ -1,0 +1,41 @@
+GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page   1
+
+Problem:    
+Objective:  x1 = 373 (MINimum)
+
+   No. Row name     St      Activity         Slack   Lower bound       Activity      Obj coef  Obj value at Limiting
+                                          Marginal   Upper bound          range         range   break point variable
+------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
+     1 c_u_x6_      NU      62.00000        .               -Inf       45.00000          -Inf     390.00000 x3
+                                          -1.00000      62.00000       64.33333       1.00000     370.66667 c_u_x7_
+
+     2 c_u_x7_      BS      70.50000       3.50000          -Inf       70.50000          -Inf          -Inf
+                                            .           74.00000       45.00000        .66667     420.00000 c_u_x6_
+
+     3 c_u_x8_      BS      64.00000      15.00000          -Inf       64.00000          -Inf          -Inf
+                                            .           79.00000       30.00000        .50000     405.00000 c_u_x6_
+
+     4 c_l_x9_      NL      15.00000        .           15.00000       12.66667     -29.00000     305.33333 c_u_x7_
+                                          29.00000          +Inf       20.66667          +Inf     537.33333 x3
+
+GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page   2
+
+Problem:    
+Objective:  x1 = 373 (MINimum)
+
+   No. Column name  St      Activity      Obj coef   Lower bound       Activity      Obj coef  Obj value at Limiting
+                                          Marginal   Upper bound          range         range   break point variable
+------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
+     1 x2           BS       6.50000      26.00000        .            15.00000      24.00000     360.00000 c_u_x6_
+                                            .               +Inf        6.50000          +Inf          +Inf
+
+     2 x3           BS       8.50000      24.00000        .             8.50000          -Inf          -Inf
+                                            .               +Inf           -Inf      26.00000     390.00000 c_u_x6_
+
+     3 x4           NL        .           30.00000        .             -.63636      19.00000     366.00000 c_u_x7_
+                                          11.00000          +Inf        2.42857          +Inf     399.71429 x3
+
+     4 x5           NL        .           93.00000        .             -.53846      17.00000     332.07692 c_u_x7_
+                                          76.00000          +Inf        1.88889          +Inf     516.55556 x3
+
+End of report

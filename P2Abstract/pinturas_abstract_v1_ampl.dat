@@ -1,0 +1,24 @@
+## Ejemplo Pinturas versión 2 - Data en formato AMPL
+
+param n:= 2;
+param m:= 2;
+
+param p:= 
+       1 5 
+       2 4;
+param P_max:= 
+	 1 Infinity 
+	 2 2;
+param P_min:= 
+	 1 0 
+	 2 0;
+param disp:= 
+	  1 24 
+	  2 6;
+
+param prod: 1  2:=
+		1   6  4
+		2   1  2;
+		
+param dif:= 
+         2 1;

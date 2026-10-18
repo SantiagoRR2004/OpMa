@@ -1,0 +1,25 @@
+## Ejemplo Pinturas versión 2 - Data en formato AMPL
+
+set I:= MatPrimaA MatPrimaB;
+set J:= pExterior pInterior;
+set Pref:= pExterior;
+
+param p:= 
+       pExterior 5 
+       pInterior 4;
+param P_max:= 
+	 pExterior Infinity 
+	 pInterior 2;
+param P_min:= 
+	 pExterior 0 
+	 pInterior 0;
+param disp:= 
+	  MatPrimaA 24 
+	  MatPrimaB 6;
+
+param prod: pExterior  pInterior:=
+	MatPrimaA   6  			4
+	MatPrimaB   1  			2;
+		
+param dif:= 
+         pInterior 1;

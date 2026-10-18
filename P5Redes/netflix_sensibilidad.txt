@@ -1,0 +1,55 @@
+GLPK 4.65 - SENSITIVITY ANALYSIS REPORT                                                                         Page   1
+
+Problem:    
+Objective:  Coste = 24500 (MINimum)
+
+   No. Row name     St      Activity         Slack   Lower bound       Activity      Obj coef  Obj value at Limiting
+                                          Marginal   Upper bound          range         range   break point variable
+------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
+     1 c_u_maxOferta(S1)_
+                    NU    3000.00000        .               -Inf     2900.00000          -Inf   24600.00000 c_u_maxOferta(S3)_
+                                          -1.00000    3000.00000     4000.00000       1.00000   23500.00000 Flujo(S3_C2)
+
+     2 c_u_maxOferta(S2)_
+                    NU    2000.00000        .               -Inf     1900.00000          -Inf   24800.00000 c_u_maxOferta(S3)_
+                                          -3.00000    2000.00000     3500.00000       3.00000   20000.00000 Flujo(S3_C1)
+
+     3 c_u_maxOferta(S3)_
+                    BS    2500.00000     100.00000          -Inf     5500.00000      -1.00000   22000.00000 c_u_maxOferta(S1)_
+                                            .         2600.00000     2500.00000          +Inf          +Inf
+
+     4 c_e_minDemanda(C1)_
+                    NS    3500.00000        .         3500.00000     2000.00000          -Inf   17000.00000 Flujo(S3_C1)
+                                           5.00000    3500.00000     3600.00000          +Inf   25000.00000 c_u_maxOferta(S3)_
+
+     5 c_e_minDemanda(C2)_
+                    NS    4000.00000        .         4000.00000     3000.00000          -Inf   20500.00000 Flujo(S3_C2)
+                                           4.00000    4000.00000     4100.00000          +Inf   24900.00000 c_u_maxOferta(S3)_
+
+GLPK 4.65 - SENSITIVITY ANALYSIS REPORT                                                                         Page   2
+
+Problem:    
+Objective:  Coste = 24500 (MINimum)
+
+   No. Column name  St      Activity      Obj coef   Lower bound       Activity      Obj coef  Obj value at Limiting
+                                          Marginal   Upper bound          range         range   break point variable
+------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
+     1 Flujo(S1_C1) NL        .            6.00000        .         -1000.00000       4.00000   22500.00000 Flujo(S3_C2)
+                                           2.00000          +Inf     1500.00000          +Inf   27500.00000 Flujo(S3_C1)
+
+     2 Flujo(S1_C2) BS    3000.00000       3.00000        .          3000.00000          -Inf          -Inf
+                                            .               +Inf     2900.00000       4.00000   27500.00000 c_u_maxOferta(S1)_
+
+     3 Flujo(S2_C1) BS    2000.00000       2.00000        .          2000.00000          -Inf          -Inf
+                                            .               +Inf     1000.00000       4.00000   28500.00000 Flujo(S2_C2)
+
+     4 Flujo(S2_C2) NL        .            3.00000        .         -1500.00000       1.00000   21500.00000 Flujo(S3_C1)
+                                           2.00000          +Inf     1000.00000          +Inf   26500.00000 Flujo(S3_C2)
+
+     5 Flujo(S3_C1) BS    1500.00000       5.00000        .          2500.00000       3.00000   21500.00000 Flujo(S2_C2)
+                                            .               +Inf    -1500.00000       7.00000   27500.00000 Flujo(S1_C1)
+
+     6 Flujo(S3_C2) BS    1000.00000       4.00000        .          1100.00000       3.00000   23500.00000 c_u_maxOferta(S1)_
+                                            .               +Inf    -1000.00000       6.00000   26500.00000 Flujo(S2_C2)
+
+End of report

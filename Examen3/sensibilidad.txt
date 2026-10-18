@@ -1,0 +1,53 @@
+GLPK 4.65 - SENSITIVITY ANALYSIS REPORT                                                                         Page   1
+
+Problem:    
+Objective:  objective = 32 (MINimum)
+
+   No. Row name     St      Activity         Slack   Lower bound       Activity      Obj coef  Obj value at Limiting
+                                          Marginal   Upper bound          range         range   break point variable
+------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
+     1 c_u_RA1_     BS       1.00000       3.00000          -Inf        2.00000      -6.00000      26.00000 c_u_RA2_
+                                            .            4.00000        1.00000          +Inf          +Inf
+
+     2 c_u_RA2_     NU       2.00000        .               -Inf        1.00000          -Inf      38.00000 A2V2
+                                          -6.00000       2.00000        3.00000       6.00000      26.00000 A1V2
+
+     3 c_u_RA3_     NU       3.00000        .               -Inf        2.00000          -Inf      38.00000 A2V2
+                                          -6.00000       3.00000        4.00000       6.00000      26.00000 A1V2
+
+     4 c_l_RV1_     NL       2.00000        .            2.00000        1.00000     -15.00000      17.00000 A1V2
+                                          15.00000          +Inf        3.00000          +Inf      47.00000 A2V2
+
+     5 c_l_RV2_     NL       2.00000        .            2.00000        1.00000      -7.00000      25.00000 A1V2
+                                           7.00000          +Inf        5.00000          +Inf      53.00000 c_u_RA1_
+
+     6 c_l_RV3_     NL       2.00000        .            2.00000        1.00000      -9.00000      23.00000 A1V2
+                                           9.00000          +Inf        3.00000          +Inf      41.00000 A2V2
+
+GLPK 4.65 - SENSITIVITY ANALYSIS REPORT                                                                         Page   2
+
+Problem:    
+Objective:  objective = 32 (MINimum)
+
+   No. Column name  St      Activity      Obj coef   Lower bound       Activity      Obj coef  Obj value at Limiting
+                                          Marginal   Upper bound          range         range   break point variable
+------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
+     1 A1V2         BS       1.00000       7.00000        .             2.00000       1.00000      26.00000 c_u_RA2_
+                                            .               +Inf        1.00000          +Inf          +Inf
+
+     2 A2V1         BS       1.00000       9.00000        .             2.00000       3.00000      26.00000 c_u_RA3_
+                                            .               +Inf       -1.00000      11.00000      34.00000 A2V3
+
+     3 A2V2         BS       1.00000       1.00000        .             1.00000          -Inf          -Inf
+                                            .               +Inf       -2.00000       7.00000      38.00000 c_u_RA2_
+
+     4 A2V3         NL        .            5.00000        .            -1.00000       3.00000      30.00000 A3V1
+                                           2.00000          +Inf        1.00000          +Inf      34.00000 A2V1
+
+     5 A3V1         BS       1.00000       9.00000        .             2.00000       7.00000      30.00000 A2V3
+                                            .               +Inf         .           15.00000      38.00000 c_u_RA3_
+
+     6 A3V3         BS       2.00000       3.00000        .             3.00000      -6.00000      14.00000 c_l_RV3_
+                                            .               +Inf        1.00000       5.00000      36.00000 A2V3
+
+End of report

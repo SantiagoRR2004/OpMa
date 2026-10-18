@@ -1,0 +1,23 @@
+## Ejemplo Netflix como PFCM - Data en formato AMPL
+
+set Nodos:= O S1 S2 S3 C1 C2;
+
+set Arcos:= (O,S1) (O,S2) (O,S3) (C1,O) (C2,O) (S1,C1) (S2,C1) (S2,C2) (S3,C1) (S3,C2);
+
+param Costes :=
+	S1 C1  6
+ 	S2 C1  2 
+	S2 C2  3
+	S3 C1  5
+	S3 C2  4;
+	
+param l :=
+	C1 O 3500
+	C2 O 4000;
+	
+param u :=
+    O  S1 3000
+	O  S2 2000
+	O  S3 2600
+	C1  O 3500
+	C2  O 4000;

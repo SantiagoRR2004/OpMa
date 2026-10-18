@@ -1,0 +1,19 @@
+1a) Se debería invertir en los proyectos A, B y D.
+
+1b) El proyecto que aporta más beneficio por euro invertido es el C y no lo escogemos
+
+1c) Lo que habría que representar es C >= D o C-D >= 0
+instancia.Constraint = pyo.Constraint(expr = instancia.x["C"] - instancia.x["D"] >= 0)
+
+2d) No hay diferencias
+
+2e) Siguen dando las mismas soluciones por la unimodularidad
+
+3)
+instancia.Constraint1 = pyo.Constraint(expr = instancia.x["Amarillo"] <= 2)
+instancia.Constraint2 = pyo.Constraint(expr = instancia.x["Naranja"] <= 3)
+instancia.Constraint2 = pyo.Constraint(expr = instancia.x["Azul"] <= 4)
+instancia.Constraint2 = pyo.Constraint(expr = instancia.x["Verde"] <= 1)
+instancia.Constraint2 = pyo.Constraint(expr = instancia.x["Gris"] <= 3)
+
+Se meterían 2 amarillos, 3 grises y 4 narajas. El valor sería 30

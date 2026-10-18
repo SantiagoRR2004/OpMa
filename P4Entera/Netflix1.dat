@@ -1,0 +1,20 @@
+## Ejemplo Pinturas versión 2 - Data en formato AMPL
+
+param n:= 2;
+param m:= 3;
+
+param capacity:= 
+       1 5
+       2 4
+       3 45;
+       
+param demand:= 
+	 1 8 
+	 2 8;
+
+
+param time: 1  2:=
+		1   6  4
+		2   4  2
+		3   5  8;
+

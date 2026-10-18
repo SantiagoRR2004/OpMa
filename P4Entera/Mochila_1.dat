@@ -1,0 +1,19 @@
+## Ejemplo Mochila - Data en formato AMPL
+
+set J:= Amarillo Naranja Azul Verde Gris;
+
+param u:= 
+       Amarillo 10
+	   Naranja   1
+	   Azul      2
+	   Verde     4
+       Gris      2;
+
+param p:=
+       Amarillo  4
+	   Naranja   1
+	   Azul      2
+	   Verde    12
+       Gris      1; 
+
+param P:= 15;
